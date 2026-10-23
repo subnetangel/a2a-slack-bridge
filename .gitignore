@@ -1,0 +1,20 @@
+# Your filled-in config (only config.example.json is committed)
+config.json
+
+# Runtime state: watermarks, dedupe, sessions, escalation records,
+# heartbeat, logs. State is machine-local and never committed.
+state/
+
+# Tokens and local credential material
+*.token
+token.txt
+slack-token
+.env
+
+# Python noise
+__pycache__/
+*.pyc
+
+# Backups an operator might leave next to the live files
+*.bak
+*.bak-*

@@ -1,0 +1,21 @@
+[Unit]
+Description=A2A Slack bridge wake daemon (__SERVICE_NAME__) - near-instant Slack mention responder for one agent bot
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+[Service]
+Type=simple
+User=__RUN_USER__
+WorkingDirectory=__INSTALL_DIR__
+ExecStart=__PYTHON3__ __INSTALL_DIR__/daemon.py run --config __INSTALL_DIR__/config.json
+Environment=HOME=__HOME_DIR__
+__PROXY_ENV_LINES__
+Restart=on-failure
+RestartSec=5
+KillMode=control-group
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target
